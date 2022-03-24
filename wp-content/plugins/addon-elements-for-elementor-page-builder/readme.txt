@@ -3,7 +3,7 @@ Contributors: wpvibes, hardiksharma, satishprajapati
 Tags: elementor, addons, elements, elementor addon, elementor widget, page-builder, WordPress page builder, elementor extensions, elementor page builder
 Requires at least: 5.0
 Requires PHP: 5.6
-Tested up to: 5.9
+Tested up to: 5.9.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -124,6 +124,9 @@ New elements are added at the end of the default elementor widget area under the
 8. Elementor addon widgets section
 
 == Changelog ==
+= 1.11.15 = 
+* Enhancement : Added compatibility with Elementor 3.6
+
 = 1.11.14 = 
 * Fixed : Security fix
 

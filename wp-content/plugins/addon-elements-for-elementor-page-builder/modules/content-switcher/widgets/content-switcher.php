@@ -35,7 +35,7 @@ class Content_Switcher extends EAE_Widget_Base {
 	// phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
 	protected $_has_template_content = false;
 
-	protected function _register_skins() {
+	protected function register_skins() {
 		$this->add_skin( new Skins\Skin_1( $this ) );
 		$this->add_skin( new Skins\Skin_3( $this ) );
 		$this->add_skin( new Skins\Skin_4( $this ) );

@@ -33,7 +33,7 @@ class Chart extends EAE_Widget_Base {
 	}
 
 
-	protected function _register_skins() {
+	protected function register_skins() {
 		$this->add_skin( new Skins\Skin_Bar_Chart( $this ) );
 		$this->add_skin( new Skins\Skin_Horizontal_Bar_Chart( $this ) );
 		$this->add_skin( new Skins\Skin_Line_Chart( $this ) );

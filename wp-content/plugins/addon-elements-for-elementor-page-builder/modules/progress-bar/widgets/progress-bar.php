@@ -26,7 +26,7 @@ class Progress_Bar extends EAE_Widget_Base {
 
 	protected $_has_template_content = false;
 
-	protected function _register_skins() {
+	protected function register_skins() {
 		$this->add_skin( new Skins\Skin_1( $this ) );
 		$this->add_skin( new Skins\Skin_2( $this ) );
 		$this->add_skin( new Skins\Skin_3( $this ) );
