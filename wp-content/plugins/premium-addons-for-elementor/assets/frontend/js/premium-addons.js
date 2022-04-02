@@ -884,19 +884,35 @@
         /****** Premium Counter Handler ******/
         var PremiumCounterHandler = function ($scope, $) {
 
-            var $counterElement = $scope.find(".premium-counter");
+            var $counterElement = $scope.find(".premium-counter"),
+                isHScrollWidget = $counterElement.closest(".premium-hscroll-temp"),
+                counterSettings = $counterElement.data(),
+                incrementElement = $counterElement.find(".premium-counter-init"),
+                iconElement = $counterElement.find(".icon");
 
-            elementorFrontend.waypoint($counterElement, function () {
+            if (!isHScrollWidget.length) {
+                elementorFrontend.waypoint($counterElement, function () {
 
-                var counterSettings = $counterElement.data(),
-                    incrementElement = $counterElement.find(".premium-counter-init"),
-                    iconElement = $counterElement.find(".icon");
 
-                $(incrementElement).numerator(counterSettings);
 
-                $(iconElement).addClass("animated " + iconElement.data("animation"));
+                    $(incrementElement).numerator(counterSettings);
 
-            });
+                    $(iconElement).addClass("animated " + iconElement.data("animation"));
+
+                });
+            } else {
+
+                $(window).on("scroll", function () {
+
+                    if ($(window).scrollTop() >= isHScrollWidget.data("scroll-offset")) {
+                        $(incrementElement).numerator(counterSettings);
+
+                        $(iconElement).addClass("animated " + iconElement.data("animation"));
+                    }
+
+                });
+
+            }
 
         };
 
@@ -1244,6 +1260,8 @@
 
                 $(".slick-track").addClass("translate");
 
+                $scope.find(".premium-carousel-hidden").removeClass("premium-carousel-hidden");
+
             });
 
             $carouselElem.find(".premium-carousel-inner").slick({
@@ -1291,6 +1309,10 @@
                     return customDot;
                 }
             });
+
+            $carouselElem.find(".premium-carousel-nav-arrow-prev").remove();
+            $carouselElem.find(".premium-carousel-nav-arrow-next").remove();
+            $carouselElem.find(".premium-carousel-nav-dot").remove();
 
             if (settings.variableWidth) {
                 $carouselElem.find(".elementor-container").css("flex-wrap", "nowrap");

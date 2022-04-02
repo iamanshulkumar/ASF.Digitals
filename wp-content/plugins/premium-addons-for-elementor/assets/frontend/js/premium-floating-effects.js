@@ -4,8 +4,31 @@
 
         var PremiumFloatingEffectsHandler = function ($scope) {
 
-            if (!$scope.hasClass("premium-floating-effects-yes"))
+            if (!$scope.hasClass("premium-floating-effects-yes")) {
                 return;
+            }
+
+            if ($scope.hasClass("premium-disable-fe-yes")) {
+                var iOS = /iP(hone|ad|od)/i.test(navigator.userAgent) && !window.MSStream;
+
+                if (iOS) {
+                    var allowedBrowser = /(Chrome|CriOS|OPiOS|FxiOS)/.test(navigator.userAgent);
+
+                    if (!allowedBrowser) {
+                        var isFireFox = '' === navigator.vendor;
+                        allowedBrowser = allowedBrowser || isFireFox;
+                    }
+
+                    var isSafari = /WebKit/i.test(navigator.userAgent) && !allowedBrowser;
+
+                } else {
+                    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                }
+
+                if (isSafari) {
+                    return;
+                }
+            }
 
             var target = $scope,
                 widgetId = target.data("model-cid"),

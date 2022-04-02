@@ -679,14 +679,14 @@ input:checked+.slider:before {
     outline: none;
     margin-left: 5px;
     -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+    transform: rotateY(180deg);
     background-color: transparent;
     cursor: pointer;
 }
 
 .pa-section-info-wrap .pa-btn-regenerate.loading {
     -webkit-animation: spin 2s linear infinite;
-            animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
 
 .pa-section-info-wrap .pa-btn-regenerate i.dashicons {
@@ -1633,6 +1633,30 @@ input:checked+.slider:before {
     font-weight: 700;
 }
 
+#wp-admin-bar-premium-addons .ab-item .dashicons {
+    position: relative;
+    top: 8px;
+    display: inline-block;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    font-size: inherit;
+    font-family: dashicons;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: auto;
+}
+
+#wp-admin-bar-premium-addons>.ab-item>i {
+    font-size: 18px !important;
+}
+
+#wp-admin-bar-premium-addons li .loading {
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
 /*
 * Dashboard Tabs
 */
@@ -1968,23 +1992,23 @@ input:checked+.slider:before {
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotateZ(-180deg) rotateY(180deg);
-                transform: rotateZ(-180deg) rotateY(180deg);
+        transform: rotateZ(-180deg) rotateY(180deg);
     }
 
     100% {
         -webkit-transform: rotateZ(180deg) rotateY(180deg);
-                transform: rotateZ(180deg) rotateY(180deg);
+        transform: rotateZ(180deg) rotateY(180deg);
     }
 }
 
 @keyframes spin {
     0% {
         -webkit-transform: rotateZ(-180deg) rotateY(180deg);
-                transform: rotateZ(-180deg) rotateY(180deg);
+        transform: rotateZ(-180deg) rotateY(180deg);
     }
 
     100% {
         -webkit-transform: rotateZ(180deg) rotateY(180deg);
-                transform: rotateZ(180deg) rotateY(180deg);
+        transform: rotateZ(180deg) rotateY(180deg);
     }
 }

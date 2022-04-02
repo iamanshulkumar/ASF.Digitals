@@ -1,5 +1,10 @@
 /**************** Premium Carousel **************/
 /************************************************/
+.premium-carousel-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .premium-carousel-wrapper a.carousel-arrow,
 .premium-carousel-wrapper a.ver-carousel-arrow {
     -js-display: flex;

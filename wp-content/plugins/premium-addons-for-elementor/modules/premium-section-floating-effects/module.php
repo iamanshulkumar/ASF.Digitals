@@ -919,6 +919,19 @@ class Module {
 			)
 		);
 
+		$element->add_control(
+			'premium_fe_disable_safari',
+			array(
+				'label'        => __( 'Disable Floating Effects On Safari', 'premium-addons-for-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'prefix_class' => 'premium-disable-fe-',
+				'separator'    => 'before',
+				'condition'    => array(
+					'premium_fe_switcher' => 'yes',
+				),
+			)
+		);
+
 		$element->end_controls_section();
 
 	}

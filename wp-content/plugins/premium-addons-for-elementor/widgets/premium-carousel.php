@@ -1368,6 +1368,7 @@ class Premium_Carousel extends Widget_Base {
 			'class',
 			array(
 				'premium-carousel-wrapper',
+				'premium-carousel-hidden',
 				'carousel-wrapper-' . esc_attr( $this->get_id() ),
 				$extra_class,
 				$dir,
@@ -1691,6 +1692,7 @@ class Premium_Carousel extends Widget_Base {
 
 			view.addRenderAttribute( 'carousel', 'class', [
 				'premium-carousel-wrapper',
+				'premium-carousel-hidden',
 				'carousel-wrapper-' + view.getID(),
 				extraClass,
 				dir

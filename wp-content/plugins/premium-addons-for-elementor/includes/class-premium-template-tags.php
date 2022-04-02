@@ -435,7 +435,11 @@ class Premium_Template_Tags {
 
 			if ( empty( array_diff( ( $settings['custom_posts_filter'] ), $keys ) ) ) {
 
-				$post_args[ $settings['posts_filter_rule'] ] = $settings['custom_posts_filter'];
+				if ( 'post__in' === $settings['posts_filter_rule'] ) {
+					$post_args['post__in'] = $settings['custom_posts_filter'];
+				} else {
+					$excluded_posts = $settings['custom_posts_filter'];
+				}
 			}
 		}
 

@@ -94,8 +94,10 @@ class Admin_Helper {
 		// Register AJAX Hooks for regenerate assets
 		add_action( 'wp_ajax_pa_clear_cached_assets', array( $this, 'clear_cached_assets' ) );
 
+		// Register AJAX Hooks for Newsletter.
 		add_action( 'wp_ajax_subscribe_newsletter', array( $this, 'subscribe_newsletter' ) );
 
+		// Add action for PA dashboard tab header.
 		add_action( 'pa_before_render_admin_tabs', array( $this, 'render_dashboard_header' ) );
 
 		// Register Rollback hooks.
@@ -113,6 +115,14 @@ class Admin_Helper {
 				if ( self::check_duplicator() ) {
 					Duplicator::get_instance();
 				}
+			}
+		}
+
+		if ( is_user_logged_in() && self::check_user_can( 'manage_options' ) ) {
+			// PA Dynamic Assets.
+			$row_meta = Helper_Functions::is_hide_row_meta();
+			if ( self::check_dynamic_assets() && ! $row_meta ) {
+				Admin_Bar::get_instance();
 			}
 		}
 
@@ -213,7 +223,7 @@ class Admin_Helper {
 		if ( strpos( $current_screen, $this->page_slug ) !== false ) {
 
 			wp_enqueue_style(
-				'pa-admin-css',
+				'pa-admin',
 				PREMIUM_ADDONS_URL . 'admin/assets/css/admin' . $suffix . '.css',
 				array(),
 				PREMIUM_ADDONS_VERSION,
@@ -860,6 +870,27 @@ class Admin_Helper {
 	}
 
 	/**
+	 * Check If Premium Duplicator is enabled
+	 *
+	 * @since 4.9.4
+	 * @access public
+	 *
+	 * @return boolean
+	 */
+	public static function check_dynamic_assets() {
+
+		$settings = self::get_enabled_elements();
+
+		if ( ! isset( $settings['premium-assets-generator'] ) ) {
+			return false;
+		}
+
+		$is_enabled = $settings['premium-assets-generator'];
+
+		return $is_enabled;
+	}
+
+	/**
 	 * Get Integrations Settings
 	 *
 	 * Get plugin integrations settings
@@ -954,8 +985,13 @@ class Admin_Helper {
 			wp_send_json_error( __( 'You are not allowed to do this action', 'premium-addons-for-elementor' ) );
 		}
 
-		$this->delete_assets_options();
-		$this->delete_assets_files();
+		$post_id = isset( $_POST['id'] ) ? $_POST['id'] : '';
+
+		if ( empty( $post_id ) ) {
+			$this->delete_assets_options();
+		}
+
+		$this->delete_assets_files( $post_id );
 
 		wp_send_json_success( 'Cached Assets Cleared' );
 	}
@@ -979,8 +1015,10 @@ class Admin_Helper {
 	 *
 	 * @access public
 	 * @since 4.6.1
+	 *
+	 * @param string $id post id.
 	 */
-	public function delete_assets_files() {
+	public function delete_assets_files( $id ) {
 
 		$path = PREMIUM_ASSETS_PATH;
 
@@ -988,12 +1026,22 @@ class Admin_Helper {
 			return;
 		}
 
-		foreach ( scandir( $path ) as $file ) {
-			if ( $file == '.' || $file == '..' ) {
-				continue;
-			}
+		if ( empty( $id ) ) {
+			foreach ( scandir( $path ) as $file ) {
+				if ( $file == '.' || $file == '..' ) {
+					continue;
+				}
 
-			unlink( Helper_Functions::get_safe_path( $path . DIRECTORY_SEPARATOR . $file ) );
+				unlink( Helper_Functions::get_safe_path( $path . DIRECTORY_SEPARATOR . $file ) );
+			}
+		} else {
+
+			$id = Helper_Functions::generate_unique_id( 'pa_assets_' . $id );
+
+			$arr = array();
+			foreach ( glob( PREMIUM_ASSETS_PATH . '/*' . $id . '*' ) as $file ) {
+				unlink( Helper_Functions::get_safe_path( $file ) );
+			}
 		}
 
 	}

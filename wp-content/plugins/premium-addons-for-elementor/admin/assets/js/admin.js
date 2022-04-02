@@ -48,29 +48,6 @@
 
             self.handlePaproActions();
 
-            self.clearCachedAssets();
-
-        };
-
-        self.clearCachedAssets = function () {
-            $(".pa-btn-generate").on("click", function () {
-                $.ajax(
-                    {
-                        url: settings.ajaxurl,
-                        type: 'POST',
-                        data: {
-                            action: 'pa_clear_cached_assets',
-                            security: settings.nonce,
-                        },
-                        success: function (response) {
-                            console.log(response.data);
-                        },
-                        error: function (err) {
-                            console.log(err);
-                        }
-                    }
-                );
-            });
         };
 
         // Handle settings form submission

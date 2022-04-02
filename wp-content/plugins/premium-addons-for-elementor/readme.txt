@@ -5,7 +5,7 @@ Donate Link: https://premiumaddons.com/?utm_source=wp-repo&utm_medium=link&utm_c
 Requires at least: 5.0
 Tested Up To: 5.9.2
 Requires PHP: 5.4
-Stable Tag: 4.9.3
+Stable Tag: 4.9.4
 License: GPL v3.0
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -208,6 +208,14 @@ Premium Addons for Elementor is 100% Ads Free, Ads can only be detected from You
 14. Premium Progress Bar Widget for Elementor
 
 == Changelog ==
+
+= 4.9.4 =
+
+- Tweak: Added `PA Assets` in admin toolbar to clear generated dynamic assets.
+- Tweak: Disable Floating Effects on Safari option added in Floating Effects global addon.
+- Tweak: Compatibility between Counter and Horizontal Scroll widgets.
+- Tweak: Carousel widget HTML markup optimized for better performance.
+- Fixed: Exclude Posts option not working for custom post types in Blog widget.
 
 = 4.9.3 =
 

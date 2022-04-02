@@ -1,5 +1,5 @@
- (function ($) {
-     
+(function ($) {
+
     var PremiumMaskHandler = function ($scope, $) {
         var mask = $scope.hasClass('premium-mask-yes');
 
@@ -32,5 +32,5 @@
     $(window).on('elementor/frontend/init', function () {
         elementorFrontend.hooks.addAction('frontend/element_ready/premium-addon-dual-header.default', PremiumMaskHandler);
     });
- })(jQuery);
+})(jQuery);
 
