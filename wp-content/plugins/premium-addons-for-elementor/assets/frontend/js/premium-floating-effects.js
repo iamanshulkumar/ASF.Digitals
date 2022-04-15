@@ -1,5 +1,35 @@
 (function ($) {
 
+    if ('undefined' == typeof window.paCheckSafari) {
+        window.paCheckSafari = checkSafariBrowser();
+
+        function checkSafariBrowser() {
+
+            var iOS = /iP(hone|ad|od)/i.test(navigator.userAgent) && !window.MSStream;
+
+            if (iOS) {
+                var allowedBrowser = /(Chrome|CriOS|OPiOS|FxiOS)/.test(navigator.userAgent);
+
+                if (!allowedBrowser) {
+                    var isFireFox = '' === navigator.vendor;
+                    allowedBrowser = allowedBrowser || isFireFox;
+                }
+
+                var isSafari = /WebKit/i.test(navigator.userAgent) && !allowedBrowser;
+
+            } else {
+                var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            }
+
+            if (isSafari) {
+                return true;
+            }
+
+            return false;
+        }
+
+    }
+
     $(window).on('elementor/frontend/init', function () {
 
         var PremiumFloatingEffectsHandler = function ($scope) {
@@ -9,25 +39,8 @@
             }
 
             if ($scope.hasClass("premium-disable-fe-yes")) {
-                var iOS = /iP(hone|ad|od)/i.test(navigator.userAgent) && !window.MSStream;
-
-                if (iOS) {
-                    var allowedBrowser = /(Chrome|CriOS|OPiOS|FxiOS)/.test(navigator.userAgent);
-
-                    if (!allowedBrowser) {
-                        var isFireFox = '' === navigator.vendor;
-                        allowedBrowser = allowedBrowser || isFireFox;
-                    }
-
-                    var isSafari = /WebKit/i.test(navigator.userAgent) && !allowedBrowser;
-
-                } else {
-                    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-                }
-
-                if (isSafari) {
+                if (window.paCheckSafari)
                     return;
-                }
             }
 
             var target = $scope,
@@ -49,7 +62,13 @@
                 return false;
             }
 
-            applyEffects();
+            elementorFrontend.waypoint(
+                $scope,
+                function () {
+                    applyEffects();
+                }
+            );
+
 
             function generateEditorSettings() {
 

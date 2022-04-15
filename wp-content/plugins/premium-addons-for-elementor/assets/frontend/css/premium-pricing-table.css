@@ -3,6 +3,8 @@
 .premium-pricing-table-container {
   position: relative;
   text-align: center;
+  display: inline-block;
+  width: 100%;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
 

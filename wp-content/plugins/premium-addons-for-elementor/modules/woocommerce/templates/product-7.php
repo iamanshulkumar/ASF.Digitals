@@ -42,7 +42,7 @@ $out_of_stock    = 'outofstock' === get_post_meta( $product_id, '_stock_status',
 			if ( $out_of_stock ) {
 				echo '<span class="pa-out-of-stock">' . esc_html( self::$settings['sold_out_string'] ) . '</span>';
 			} else {
-				if ( 'yes' === $sale_ribbon || 'yes' === $featured_ribbon ) {
+				if ( $product->is_on_sale() || $product->is_featured() ) {
 
 					echo '<div class="premium-woo-ribbon-container">';
 

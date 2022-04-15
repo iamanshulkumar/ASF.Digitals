@@ -3,9 +3,9 @@ Contributors: Leap13, Rimoun
 Tags: elementor, elementor addons, elementor widgets, elementor elements, elementor templates
 Donate Link: https://premiumaddons.com/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme
 Requires at least: 5.0
-Tested Up To: 5.9.2
+Tested Up To: 5.9.3
 Requires PHP: 5.4
-Stable Tag: 4.9.4
+Stable Tag: 4.9.6
 License: GPL v3.0
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -24,7 +24,7 @@ Supercharge your [Elementor Page Builder](https://wordpress.org/plugins/elemento
 Now, you create build Elementor section templates and insert them inside the Elementor templates based widgets in Premium Addons within the same page using [Elementor Templates Live Editor tool](https://premiumaddons.com/elementor-templates-live-editor/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme).
 
 ### New: Elementor Display Conditions
-Premium Addons is proudly offering you a professional way to manage your website content with specific conditions which is perfect for marketers and eCommerce websites. You can show/hide content dynamically based on location, browser, operating system, user role, device type, Woocommerce display conditions such as WooCommerce product and WooCommerce shopping cart data, ACF fields, etc. [Check the demo page](https://premiumaddons.com/elementor-display-conditions/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme)
+Premium Addons is proudly offering you a professional way to manage your website content with specific conditions which is perfect for marketers and eCommerce websites. You can show/hide content dynamically based on location, browser, operating system, user role, URL parameters, device type, Woocommerce display conditions such as WooCommerce product and WooCommerce shopping cart data, ACF fields, etc. [Check the demo page](https://premiumaddons.com/elementor-display-conditions/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme)
 
 ### New: Elementor WooCommerce Products Listing widget
 Show off your products in an elegant way using Premium Woo Products Widget for Elementor Page Builder that comes with unlimited customization options. [Check the demo page](https://premiumaddons.com/elementor-woocommerce-products/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme)
@@ -208,6 +208,21 @@ Premium Addons for Elementor is 100% Ads Free, Ads can only be detected from You
 14. Premium Progress Bar Widget for Elementor
 
 == Changelog ==
+
+= 4.9.6 =
+
+- Tweak: Load Lottie Animations when visible on viewport to improve performance and page loading speed.
+- Tweak: Added Privacy Mode option for YouTube videos in Media Grid widget.
+- Fixed: PHP warning when Image option is not set in Media Grid widget.
+
+= 4.9.5 =
+
+- Tweak: Added Disable Floating Effects on Safari option in widgets that have floating effects.
+- Tweak: Trigger Floating Effects addon when element is visible on viewport to improve page loading speed.
+- Tweak: Removed unnecessary CSS classes from Modal Box widget.
+- Tweak: Compatibility between PA Cross-Domain Copy N’ Paste feature and Elementor Flex Container - [here](https://elementor.com/help/container-element/).
+- Fixed: CSS classes are rendered multiple times in Blog widget.
+- Fixed: Long text causes image icon to get squished in Bullet List widget.
 
 = 4.9.4 =
 

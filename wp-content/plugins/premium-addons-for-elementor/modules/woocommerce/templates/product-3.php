@@ -42,7 +42,7 @@ $image_size      = $settings['featured_image_size'];
 		if ( $out_of_stock ) {
 			echo '<span class="pa-out-of-stock">' . esc_html( self::$settings['sold_out_string'] ) . '</span>';
 		} else {
-			if ( 'yes' === $sale_ribbon || 'yes' === $featured_ribbon ) {
+			if ( $product->is_on_sale() || $product->is_featured() ) {
 
 				echo '<div class="premium-woo-ribbon-container">';
 
@@ -76,7 +76,7 @@ $image_size      = $settings['featured_image_size'];
 			$qv_type = $this->get_option_value( 'quick_view_type' );
 			if ( 'button' === $qv_type ) {
 				echo '<div class="premium-woo-qv-btn premium-woo-qv-btn-translate" data-product-id="' . esc_attr( $product_id ) . '">';
-					echo '<span class="premium-woo-qv-text">' . esc_html( __( 'Quick View', 'premium-addons-for-elementor' ) ) . '</span>';
+				esc_html_e( __( 'Quick View', 'premium-addons-for-elementor' ) );
 					echo '<i class="premium-woo-qv-icon fa fa-eye"></i>';
 				echo '</div>';
 

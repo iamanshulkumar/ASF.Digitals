@@ -1,5 +1,5 @@
- /****** Premium Media Grid Handler ******/
-(function($){
+/****** Premium Media Grid Handler ******/
+(function ($) {
     $(window).on('elementor/frontend/init', function () {
 
         var PremiumGridWidgetHandler = elementorModules.frontend.handlers.Base.extend({

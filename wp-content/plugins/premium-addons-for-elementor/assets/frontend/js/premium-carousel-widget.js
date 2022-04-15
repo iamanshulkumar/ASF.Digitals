@@ -70,8 +70,6 @@
 
             $(".slick-track").addClass("translate");
 
-            $scope.find(".premium-carousel-hidden").removeClass("premium-carousel-hidden");
-
         });
 
         $carouselElem.find(".premium-carousel-inner").slick({
@@ -120,6 +118,7 @@
             }
         });
 
+        $scope.find(".premium-carousel-hidden").removeClass("premium-carousel-hidden");
         $carouselElem.find(".premium-carousel-nav-arrow-prev").remove();
         $carouselElem.find(".premium-carousel-nav-arrow-next").remove();
         $carouselElem.find(".premium-carousel-nav-dot").remove();

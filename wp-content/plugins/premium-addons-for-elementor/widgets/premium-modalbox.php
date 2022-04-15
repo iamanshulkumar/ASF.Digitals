@@ -1908,7 +1908,7 @@ class Premium_Modalbox extends Widget_Base {
 		$this->add_render_attribute(
 			'modal',
 			array(
-				'class'         => array( 'container', 'premium-modal-box-container' ),
+				'class'         => 'premium-modal-box-container',
 				'data-settings' => wp_json_encode( $modal_settings ),
 			)
 		);

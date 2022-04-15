@@ -76,6 +76,10 @@ class Module {
 	 */
 	public function enqueue_scripts() {
 
+		if ( ! wp_script_is( 'elementor-waypoints', 'enqueued' ) ) {
+			wp_enqueue_script( 'elementor-waypoints' );
+		}
+
 		if ( ! wp_script_is( 'pa-anime', 'enqueued' ) ) {
 			wp_enqueue_script( 'pa-anime' );
 		}

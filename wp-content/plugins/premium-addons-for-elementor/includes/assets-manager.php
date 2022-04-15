@@ -261,7 +261,13 @@ class Assets_Manager {
 			return false;
 		}
 
-		return Plugin::$instance->db->is_built_with_elementor( get_the_ID() );
+		$current_id = get_the_ID();
+
+		if ( ! $current_id ) {
+			return false;
+		}
+
+		return Plugin::$instance->documents->get( get_the_ID() )->is_built_with_elementor();
 	}
 
 	/**

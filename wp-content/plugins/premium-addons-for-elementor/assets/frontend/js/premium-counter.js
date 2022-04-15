@@ -11,8 +11,6 @@
         if (!isHScrollWidget.length) {
             elementorFrontend.waypoint($counterElement, function () {
 
-
-
                 $(incrementElement).numerator(counterSettings);
 
                 $(iconElement).addClass("animated " + iconElement.data("animation"));

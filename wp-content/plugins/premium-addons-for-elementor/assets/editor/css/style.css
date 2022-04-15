@@ -346,7 +346,7 @@
 }
 
 .premium-promotion-dialog .dialog-button {
-    font-size: 11px !important;
+    font-size: 10px !important;
     letter-spacing: 0.3px;
     width: calc(50% - 5px) !important;
 }
